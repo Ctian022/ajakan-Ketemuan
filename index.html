@@ -1,1 +1,350 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Untuk Kamu ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            min-height: 100vh;
+            overflow: hidden;
+            color: white;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(12px);
+            border-radius: 25px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: muncul 1s ease;
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .heart {
+            font-size: 70px;
+            animation: detak 1.2s infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes detak {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        button {
+            border: none;
+            padding: 14px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 7px;
+            transition: 0.3s;
+        }
+
+        .yes {
+            background: white;
+            color: #ff4f81;
+        }
+
+        .yes:hover {
+            transform: scale(1.08);
+        }
+
+        .no {
+            background: rgba(255,255,255,0.25);
+            color: white;
+        }
+
+        #hasil {
+            display: none;
+        }
+
+        .small {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 20px;
+        }
+
+        /* Hati jatuh */
+
+        .falling-heart {
+            position: fixed;
+            top: -20px;
+            animation: jatuh linear forwards;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes jatuh {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Confetti */
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: confettiJatuh 3s linear forwards;
+            z-index: 10;
+        }
+
+        @keyframes confettiJatuh {
+            to {
+                transform: translateY(110vh) rotate(720deg);
+            }
+        }
+
+        .wa {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HALAMAN AWAL -->
+
+    <div class="card" id="awal">
+
+        <div class="heart">💌</div>
+
+        <h1>Hai Kamu ❤️</h1>
+
+        <p>
+            Ada sesuatu yang sebenarnya
+            sudah lama ingin aku tanyakan...
+        </p>
+
+        <button class="yes" onclick="buka()">
+            Buka 💕
+        </button>
+
+    </div>
+
+
+    <!-- HALAMAN PERTANYAAN -->
+
+    <div class="card" id="pertanyaan" style="display:none">
+
+        <div class="heart">🥺</div>
+
+        <h1>Mau Jalan Sama Aku?</h1>
+
+        <p>
+            Aku nggak janji bakal jadi
+            jalan-jalan yang paling sempurna...
+            <br><br>
+            Tapi aku janji bakal bikin
+            harinya jadi menyenangkan ❤️
+        </p>
+
+        <button class="yes" onclick="mau()">
+            MAU ❤️
+        </button>
+
+        <button class="no" id="noButton" onclick="tidak()">
+            TIDAK 😭
+        </button>
+
+        <div class="small">
+            *Pilih dengan hati-hati 😆
+        </div>
+
+    </div>
+
+
+    <!-- HALAMAN HASIL -->
+
+    <div class="card" id="hasil">
+
+        <div class="heart">🎉</div>
+
+        <h1>YEAY! ❤️</h1>
+
+        <p>
+            Aku senang banget kamu mau! 🥰
+            <br><br>
+            Sekarang tinggal menentukan
+            kapan kita jalan.
+        </p>
+
+        <a
+            class="wa"
+            href="https://wa.me/628XXXXXXXXXX?text=Hai!%20Aku%20mau%20jalan%20sama%20kamu%20%F0%9F%98%8D"
+            target="_blank">
+            Chat Aku 💬
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function buka() {
+
+        document.getElementById("awal").style.display = "none";
+
+        document.getElementById("pertanyaan").style.display = "block";
+
+    }
+
+
+    function mau() {
+
+        document.getElementById("pertanyaan").style.display = "none";
+
+        document.getElementById("hasil").style.display = "block";
+
+        confetti();
+
+    }
+
+
+    function tidak() {
+
+        const button = document.getElementById("noButton");
+
+        const x = Math.random() * (window.innerWidth - 120);
+
+        const y = Math.random() * (window.innerHeight - 80);
+
+        button.style.position = "fixed";
+
+        button.style.left = x + "px";
+
+        button.style.top = y + "px";
+
+    }
+
+
+    /* HATI JATUH */
+
+    function createHeart() {
+
+        const heart = document.createElement("div");
+
+        heart.className = "falling-heart";
+
+        heart.innerHTML = "❤️";
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (Math.random() * 20 + 15) + "px";
+
+        heart.style.animationDuration =
+            (Math.random() * 3 + 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+
+    }
+
+    setInterval(createHeart, 500);
+
+
+    /* CONFETTI */
+
+    function confetti() {
+
+        for (let i = 0; i < 100; i++) {
+
+            const piece = document.createElement("div");
+
+            piece.className = "confetti";
+
+            piece.style.left =
+                Math.random() * 100 + "vw";
+
+            piece.style.background =
+                `hsl(${Math.random() * 360}, 100%, 60%)`;
+
+            piece.style.animationDuration =
+                (Math.random() * 2 + 2) + "s";
+
+            document.body.appendChild(piece);
+
+            setTimeout(() => {
+                piece.remove();
+            }, 4000);
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
