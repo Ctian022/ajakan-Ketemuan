@@ -1,350 +1,2696 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Untuk Kamu ❤️</title>
+<meta charset="UTF-8">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            min-height: 100vh;
-            overflow: hidden;
-            color: white;
-        }
+<title>Untuk Kamu ❤️</title>
 
-        .container {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-        }
+<style>
 
-        .card {
-            width: 100%;
-            max-width: 400px;
-            background: rgba(255,255,255,0.18);
-            backdrop-filter: blur(12px);
-            border-radius: 25px;
-            padding: 35px 25px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            animation: muncul 1s ease;
-        }
+/* ==================================================
+   GLOBAL
+================================================== */
 
-        @keyframes muncul {
-            from {
-                opacity: 0;
-                transform: scale(0.7);
-            }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+body {
 
-        .heart {
-            font-size: 70px;
-            animation: detak 1.2s infinite;
-            margin-bottom: 15px;
-        }
+    min-height: 100vh;
 
-        @keyframes detak {
-            0%, 100% {
-                transform: scale(1);
-            }
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
-            50% {
-                transform: scale(1.2);
-            }
-        }
+    background:
+    radial-gradient(
+        circle at top,
+        #ffb6c8,
+        #ff758c 45%,
+        #d94b70
+    );
 
-        h1 {
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
+    color: white;
 
-        p {
-            font-size: 17px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
+    overflow-x: hidden;
+}
 
-        button {
-            border: none;
-            padding: 14px 25px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 7px;
-            transition: 0.3s;
-        }
 
-        .yes {
-            background: white;
-            color: #ff4f81;
-        }
+/* ==================================================
+   BACKGROUND GLOW
+================================================== */
 
-        .yes:hover {
-            transform: scale(1.08);
-        }
+body::before {
 
-        .no {
-            background: rgba(255,255,255,0.25);
-            color: white;
-        }
+    content: "";
 
-        #hasil {
-            display: none;
-        }
+    position: fixed;
 
-        .small {
-            font-size: 14px;
-            opacity: 0.85;
-            margin-top: 20px;
-        }
+    width: 300px;
+    height: 300px;
 
-        /* Hati jatuh */
+    border-radius: 50%;
 
-        .falling-heart {
-            position: fixed;
-            top: -20px;
-            animation: jatuh linear forwards;
-            pointer-events: none;
-            z-index: 1;
-        }
+    background:
+    rgba(255,255,255,.15);
 
-        @keyframes jatuh {
-            to {
-                transform: translateY(110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
+    filter: blur(70px);
 
-        /* Confetti */
+    top: -80px;
+    left: -100px;
 
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            top: -10px;
-            animation: confettiJatuh 3s linear forwards;
-            z-index: 10;
-        }
+    pointer-events: none;
+}
 
-        @keyframes confettiJatuh {
-            to {
-                transform: translateY(110vh) rotate(720deg);
-            }
-        }
+body::after {
 
-        .wa {
-            display: inline-block;
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 14px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-    </style>
+    content: "";
+
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+    rgba(255,255,255,.12);
+
+    filter: blur(70px);
+
+    bottom: -80px;
+    right: -100px;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.container {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* ==================================================
+   CARD
+================================================== */
+
+.card {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    padding: 30px 20px;
+
+    border-radius: 30px;
+
+    background:
+    rgba(255,255,255,.16);
+
+    backdrop-filter:
+    blur(20px);
+
+    -webkit-backdrop-filter:
+    blur(20px);
+
+    border:
+    1px solid
+    rgba(255,255,255,.25);
+
+    box-shadow:
+    0 25px 70px
+    rgba(0,0,0,.25);
+
+    text-align: center;
+
+    animation:
+    cardIn .8s ease;
+}
+
+
+@keyframes cardIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+        translateY(30px)
+        scale(.9);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+}
+
+
+/* ==================================================
+   TEXT
+================================================== */
+
+h1 {
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+p {
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+
+/* ==================================================
+   HEART
+================================================== */
+
+.big-heart {
+
+    font-size: 65px;
+
+    margin-bottom: 15px;
+
+    animation:
+    heartbeat 1.3s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+
+/* ==================================================
+   ENVELOPE
+================================================== */
+
+.envelope-area {
+
+    height: 255px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    perspective: 1000px;
+}
+
+
+.envelope {
+
+    position: relative;
+
+    width: 260px;
+
+    height: 165px;
+
+    cursor: pointer;
+
+    transition:
+    transform .5s;
+}
+
+
+.envelope:hover {
+
+    transform:
+    translateY(-7px);
+}
+
+
+.envelope-body {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: white;
+
+    border-radius:
+    0 0 15px 15px;
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.25);
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+
+.envelope-body::before {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+    130px solid transparent;
+
+    border-right:
+    130px solid transparent;
+
+    border-bottom:
+    95px solid #ffd6df;
+}
+
+
+.envelope-body::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-top:
+    85px solid transparent;
+
+    border-bottom:
+    85px solid transparent;
+
+    border-left:
+    130px solid #ffb7c8;
+}
+
+
+.envelope-flap {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+    130px solid transparent;
+
+    border-right:
+    130px solid transparent;
+
+    border-top:
+    100px solid #ff9eb5;
+
+    transform-origin:
+    top center;
+
+    transition:
+    transform .8s ease;
+
+    z-index: 5;
+}
+
+
+.letter {
+
+    position: absolute;
+
+    left: 15px;
+
+    bottom: 10px;
+
+    width: 230px;
+
+    height: 145px;
+
+    background: white;
+
+    color: #ff4f81;
+
+    border-radius: 10px;
+
+    z-index: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 35px;
+
+    transition:
+    bottom 1s ease,
+    transform 1s ease;
+}
+
+
+.envelope.open
+.envelope-flap {
+
+    transform:
+    rotateX(180deg);
+}
+
+
+.envelope.open
+.letter {
+
+    bottom: 95px;
+
+    transform:
+    translateY(-20px);
+
+    z-index: 6;
+}
+
+
+/* ==================================================
+   TYPEWRITER
+================================================== */
+
+.typewriter {
+
+    min-height: 90px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+
+.cursor {
+
+    display: inline-block;
+
+    width: 2px;
+
+    height: 20px;
+
+    background: white;
+
+    margin-left: 3px;
+
+    animation:
+    blink .7s infinite;
+}
+
+
+@keyframes blink {
+
+    0%,50% {
+        opacity: 1;
+    }
+
+    51%,100% {
+        opacity: 0;
+    }
+}
+
+
+/* ==================================================
+   BUTTON
+================================================== */
+
+button {
+
+    border: none;
+
+    padding:
+    14px 24px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin: 6px;
+
+    transition:
+    transform .25s;
+}
+
+
+button:hover {
+
+    transform:
+    scale(1.07);
+}
+
+
+.yes {
+
+    background: white;
+
+    color: #ff4f81;
+
+    box-shadow:
+    0 8px 20px
+    rgba(0,0,0,.18);
+}
+
+
+.no {
+
+    background:
+    rgba(255,255,255,.2);
+
+    color: white;
+}
+
+
+/* ==================================================
+   PLACE CARDS
+================================================== */
+
+.place-container {
+
+    display:
+    flex;
+
+    flex-direction:
+    column;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+
+.place-card {
+
+    position: relative;
+
+    padding: 22px 18px;
+
+    border-radius: 22px;
+
+    background:
+    rgba(255,255,255,.12);
+
+    border:
+    2px solid
+    transparent;
+
+    cursor: pointer;
+
+    transition:
+    .3s;
+
+    text-align: left;
+
+    overflow: hidden;
+}
+
+
+.place-card:hover {
+
+    transform:
+    translateY(-4px);
+
+    background:
+    rgba(255,255,255,.20);
+}
+
+
+.place-card.selected {
+
+    border:
+    2px solid white;
+
+    background:
+    rgba(255,255,255,.25);
+
+    transform:
+    scale(1.02);
+
+    box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.18);
+}
+
+
+.place-icon {
+
+    font-size: 42px;
+
+    float: left;
+
+    margin-right: 15px;
+}
+
+
+.place-card h3 {
+
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+
+.place-card p {
+
+    font-size: 13px;
+
+    margin: 0;
+
+    opacity: .85;
+}
+
+
+.check {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 15px;
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    color: #ff4f81;
+
+    opacity: 0;
+
+    transform:
+    scale(.5);
+
+    transition:
+    .3s;
+}
+
+
+.place-card.selected
+.check {
+
+    opacity: 1;
+
+    transform:
+    scale(1);
+}
+
+
+/* ==================================================
+   CALENDAR
+================================================== */
+
+.calendar {
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    background:
+    rgba(255,255,255,.12);
+}
+
+
+.calendar-header {
+
+    display: flex;
+
+    justify-content:
+    space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+
+.calendar-header h2 {
+
+    font-size: 19px;
+}
+
+
+.month-button {
+
+    width: 40px;
+
+    height: 40px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    background:
+    rgba(255,255,255,.2);
+
+    color: white;
+
+    margin: 0;
+}
+
+
+.weekdays {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(7,1fr);
+
+    margin-bottom: 7px;
+}
+
+
+.weekdays div {
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    opacity: .8;
+}
+
+
+.days {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(7,1fr);
+
+    gap: 5px;
+}
+
+
+.day {
+
+    aspect-ratio: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition:
+    .2s;
+}
+
+
+.day:hover {
+
+    background:
+    rgba(255,255,255,.25);
+}
+
+
+.day.empty {
+
+    cursor: default;
+}
+
+
+.day.past {
+
+    opacity: .2;
+
+    cursor: not-allowed;
+}
+
+
+.day.today {
+
+    border:
+    2px solid white;
+}
+
+
+.day.selected {
+
+    background: white;
+
+    color: #ff4f81;
+
+    font-weight: bold;
+
+    transform:
+    scale(1.12);
+}
+
+
+/* ==================================================
+   TIME
+================================================== */
+
+.time-box {
+
+    text-align: left;
+
+    margin-top: 18px;
+}
+
+
+.time-box label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+
+.time-box input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+/* ==================================================
+   LOCATION
+================================================== */
+
+.location {
+
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border-radius: 17px;
+
+    background:
+    rgba(255,255,255,.13);
+
+    text-align: left;
+}
+
+
+.location strong {
+
+    display: block;
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+
+.location span {
+
+    font-size: 13px;
+
+    opacity: .85;
+}
+
+
+/* ==================================================
+   LINKS
+================================================== */
+
+.maps,
+.wa {
+
+    display:
+    inline-block;
+
+    padding:
+    14px 20px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+.maps {
+
+    background: white;
+
+    color: #ff4f81;
+}
+
+
+.wa {
+
+    background: #25D366;
+
+    color: white;
+}
+
+
+/* ==================================================
+   SMALL
+================================================== */
+
+.small {
+
+    font-size: 12px;
+
+    opacity: .75;
+
+    margin-top: 18px;
+}
+
+
+/* ==================================================
+   HEART FALLING
+================================================== */
+
+.falling-heart {
+
+    position: fixed;
+
+    top: -30px;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation:
+    falling linear forwards;
+}
+
+
+@keyframes falling {
+
+    to {
+
+        transform:
+        translateY(110vh)
+        rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* ==================================================
+   CONFETTI
+================================================== */
+
+.confetti {
+
+    position: fixed;
+
+    top: -10px;
+
+    width: 9px;
+
+    height: 9px;
+
+    z-index: 20;
+
+    animation:
+    confettiFall
+    3s linear forwards;
+}
+
+
+@keyframes confettiFall {
+
+    to {
+
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+    }
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:480px) {
+
+    .card {
+
+        padding:
+        27px 17px;
+    }
+
+    h1 {
+
+        font-size: 25px;
+    }
+
+    .big-heart {
+
+        font-size: 58px;
+    }
+
+    .day {
+
+        font-size: 13px;
+    }
+
+    .envelope {
+
+        transform:
+        scale(.9);
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <!-- HALAMAN AWAL -->
 
-    <div class="card" id="awal">
+<!-- ==================================================
+     OPENING
+================================================== -->
 
-        <div class="heart">💌</div>
+<div
+class="card"
+id="opening"
+>
 
-        <h1>Hai Kamu ❤️</h1>
-
-        <p>
-            Ada sesuatu yang sebenarnya
-            sudah lama ingin aku tanyakan...
-        </p>
-
-        <button class="yes" onclick="buka()">
-            Buka 💕
-        </button>
-
-    </div>
+<div class="envelope-area">
 
 
-    <!-- HALAMAN PERTANYAAN -->
-
-    <div class="card" id="pertanyaan" style="display:none">
-
-        <div class="heart">🥺</div>
-
-        <h1>Mau Jalan Sama Aku?</h1>
-
-        <p>
-            Aku nggak janji bakal jadi
-            jalan-jalan yang paling sempurna...
-            <br><br>
-            Tapi aku janji bakal bikin
-            harinya jadi menyenangkan ❤️
-        </p>
-
-        <button class="yes" onclick="mau()">
-            MAU ❤️
-        </button>
-
-        <button class="no" id="noButton" onclick="tidak()">
-            TIDAK 😭
-        </button>
-
-        <div class="small">
-            *Pilih dengan hati-hati 😆
-        </div>
-
-    </div>
+<div
+class="envelope"
+id="envelope"
+onclick="bukaAmplop()"
+>
 
 
-    <!-- HALAMAN HASIL -->
+<div class="letter">
+💌
+</div>
 
-    <div class="card" id="hasil">
 
-        <div class="heart">🎉</div>
+<div class="envelope-body">
+</div>
 
-        <h1>YEAY! ❤️</h1>
 
-        <p>
-            Aku senang banget kamu mau! 🥰
-            <br><br>
-            Sekarang tinggal menentukan
-            kapan kita jalan.
-        </p>
+<div class="envelope-flap">
+</div>
 
-        <a
-            class="wa"
-            href="https://wa.me/628XXXXXXXXXX?text=Hai!%20Aku%20mau%20jalan%20sama%20kamu%20%F0%9F%98%8D"
-            target="_blank">
-            Chat Aku 💬
-        </a>
 
-    </div>
+</div>
 
 </div>
 
 
+<h1>
+
+Ada Surat Untuk Kamu ❤️
+
+</h1>
+
+
+<p>
+
+Klik amplopnya untuk membuka...
+
+</p>
+
+
+<div class="small">
+
+💌 Sebuah pesan kecil untuk seseorang yang spesial
+
+</div>
+
+</div>
+
+
+
+<!-- ==================================================
+     SURAT
+================================================== -->
+
+<div
+class="card"
+id="surat"
+style="display:none"
+>
+
+
+<div class="big-heart">
+💕
+</div>
+
+
+<h1>
+Hai Kamu...
+</h1>
+
+
+<div
+class="typewriter"
+id="teksSurat"
+></div>
+
+
+<button
+class="yes"
+id="lanjutSurat"
+onclick="kePertanyaan()"
+style="display:none"
+>
+
+Lanjut ❤️
+
+</button>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     PERTANYAAN
+================================================== -->
+
+<div
+class="card"
+id="pertanyaan"
+style="display:none"
+>
+
+
+<div class="big-heart">
+🥺
+</div>
+
+
+<h1>
+Aku Mau Tanya...
+</h1>
+
+
+<div
+class="typewriter"
+id="teksPertanyaan"
+></div>
+
+
+<button
+class="yes"
+onclick="mau()"
+>
+
+MAU ❤️
+
+</button>
+
+
+<button
+class="no"
+id="noButton"
+onclick="tidak()"
+>
+
+TIDAK 😭
+
+</button>
+
+
+<div class="small">
+
+Pilih dengan hati-hati 😆
+
+</div>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     PILIH TEMPAT
+================================================== -->
+
+<div
+class="card"
+id="tempat"
+style="display:none"
+>
+
+
+<div class="big-heart">
+📍
+</div>
+
+
+<h1>
+Mau Jalan Ke Mana?
+</h1>
+
+
+<p>
+
+Kamu yang pilih tempatnya ❤️
+
+</p>
+
+
+<div class="place-container">
+
+
+<!-- GRILLME -->
+
+<div
+class="place-card"
+id="grillme"
+onclick="pilihTempat('grillme')"
+>
+
+
+<div class="place-icon">
+🍖
+</div>
+
+
+<h3>
+Grillme Arang
+</h3>
+
+
+<p>
+Kuliner & makan bareng
+<br>
+Pontianak
+</p>
+
+
+<div class="check">
+✓
+</div>
+
+
+</div>
+
+
+<!-- BIOSKOP -->
+
+<div
+class="place-card"
+id="bioskop"
+onclick="pilihTempat('bioskop')"
+>
+
+
+<div class="place-icon">
+🎬
+</div>
+
+
+<h3>
+Bioskop
+</h3>
+
+
+<p>
+Nonton film bareng 🍿
+<br>
+Pontianak
+</p>
+
+
+<div class="check">
+✓
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<button
+class="yes"
+onclick="keKalender()"
+>
+
+Lanjut ❤️
+
+</button>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     KALENDER
+================================================== -->
+
+<div
+class="card"
+id="jadwal"
+style="display:none"
+>
+
+
+<div class="big-heart">
+🥰
+</div>
+
+
+<h1>
+Kapan Kita Jalan?
+</h1>
+
+
+<p>
+
+Sekarang pilih tanggal
+dan waktunya.
+
+</p>
+
+
+<div class="calendar">
+
+
+<div class="calendar-header">
+
+
+<button
+class="month-button"
+onclick="bulanSebelumnya()"
+>
+‹
+</button>
+
+
+<h2
+id="namaBulan"
+></h2>
+
+
+<button
+class="month-button"
+onclick="bulanBerikutnya()"
+>
+›
+</button>
+
+
+</div>
+
+
+<div class="weekdays">
+
+<div>Mg</div>
+<div>Sn</div>
+<div>Sl</div>
+<div>Rb</div>
+<div>Km</div>
+<div>Jm</div>
+<div>Sa</div>
+
+</div>
+
+
+<div
+class="days"
+id="days"
+></div>
+
+
+<div
+id="selectedInfo"
+style="
+margin-top:15px;
+padding:12px;
+border-radius:15px;
+background:rgba(255,255,255,.15);
+font-size:14px;
+"
+>
+
+📅 Belum memilih tanggal
+
+</div>
+
+
+</div>
+
+
+<div class="time-box">
+
+
+<label>
+⏰ Pilih waktu
+</label>
+
+
+<input
+type="time"
+id="waktu"
+value="19:00"
+>
+
+
+</div>
+
+
+<button
+class="yes"
+onclick="lanjut()"
+>
+
+Lanjut ❤️
+
+</button>
+
+
+<div class="small">
+
+Tanggal yang sudah lewat
+tidak dapat dipilih.
+
+</div>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     HASIL
+================================================== -->
+
+<div
+class="card"
+id="hasil"
+style="display:none"
+>
+
+
+<div class="big-heart">
+🎉
+</div>
+
+
+<h1>
+YEAY! ❤️
+</h1>
+
+
+<p>
+
+Berarti kita jadi jalan! 🥰
+
+<br><br>
+
+Ini pilihan kamu:
+
+</p>
+
+
+<div class="location">
+
+
+<div>
+
+📅
+
+<strong
+id="hasilTanggal"
+></strong>
+
+</div>
+
+
+<br>
+
+
+<div>
+
+⏰
+
+<strong
+id="hasilWaktu"
+></strong>
+
+</div>
+
+
+<br>
+
+
+<div>
+
+📍
+
+<strong
+id="hasilTempat"
+></strong>
+
+</div>
+
+</div>
+
+
+<a
+class="maps"
+id="maps"
+href="#"
+target="_blank"
+>
+
+📍 Buka Google Maps
+
+</a>
+
+
+<br>
+
+
+<a
+class="wa"
+id="whatsapp"
+href="#"
+target="_blank"
+>
+
+💬 Konfirmasi WhatsApp
+
+</a>
+
+
+<div class="small">
+
+Sampai ketemu ya ❤️
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
 <script>
 
-    function buka() {
 
-        document.getElementById("awal").style.display = "none";
+/* ==================================================
+   NOMOR WHATSAPP
+================================================== */
 
-        document.getElementById("pertanyaan").style.display = "block";
-
-    }
-
-
-    function mau() {
-
-        document.getElementById("pertanyaan").style.display = "none";
-
-        document.getElementById("hasil").style.display = "block";
-
-        confetti();
-
-    }
+const nomorWhatsApp =
+"628XXXXXXXXXX";
 
 
-    function tidak() {
+/* ==================================================
+   DATA TEMPAT
+================================================== */
 
-        const button = document.getElementById("noButton");
+const tempatData = {
 
-        const x = Math.random() * (window.innerWidth - 120);
+    grillme: {
 
-        const y = Math.random() * (window.innerHeight - 80);
+        nama:
+        "Grillme Arang Pontianak",
 
-        button.style.position = "fixed";
+        icon:
+        "🍖",
 
-        button.style.left = x + "px";
+        maps:
+        "https://www.google.com/maps/search/?api=1&query=Grillme+Arang+Pontianak"
 
-        button.style.top = y + "px";
-
-    }
+    },
 
 
-    /* HATI JATUH */
+    bioskop: {
 
-    function createHeart() {
+        nama:
+        "Bioskop Pontianak",
 
-        const heart = document.createElement("div");
+        icon:
+        "🎬",
 
-        heart.className = "falling-heart";
-
-        heart.innerHTML = "❤️";
-
-        heart.style.left = Math.random() * 100 + "vw";
-
-        heart.style.fontSize =
-            (Math.random() * 20 + 15) + "px";
-
-        heart.style.animationDuration =
-            (Math.random() * 3 + 3) + "s";
-
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 6000);
+        maps:
+        "https://www.google.com/maps/search/?api=1&query=bioskop+Pontianak"
 
     }
 
-    setInterval(createHeart, 500);
+};
 
 
-    /* CONFETTI */
+/* ==================================================
+   TEMPAT TERPILIH
+================================================== */
 
-    function confetti() {
+let tempatDipilih =
+null;
 
-        for (let i = 0; i < 100; i++) {
 
-            const piece = document.createElement("div");
+/* ==================================================
+   BUKA AMPLOP
+================================================== */
 
-            piece.className = "confetti";
+function bukaAmplop() {
 
-            piece.style.left =
-                Math.random() * 100 + "vw";
 
-            piece.style.background =
-                `hsl(${Math.random() * 360}, 100%, 60%)`;
+    document
+    .getElementById("envelope")
+    .classList
+    .add("open");
 
-            piece.style.animationDuration =
-                (Math.random() * 2 + 2) + "s";
 
-            document.body.appendChild(piece);
+    setTimeout(
+        function() {
 
-            setTimeout(() => {
-                piece.remove();
-            }, 4000);
+
+            document
+            .getElementById("opening")
+            .style.display =
+            "none";
+
+
+            document
+            .getElementById("surat")
+            .style.display =
+            "block";
+
+
+            const teks =
+
+            "Aku nggak tahu harus mulai dari mana... Tapi aku cuma ingin menghabiskan sedikit waktu bersamamu. Mungkin sederhana, tapi semoga bisa jadi kenangan yang menyenangkan. ❤️";
+
+
+            ketik(
+
+                document
+                .getElementById("teksSurat"),
+
+                teks,
+
+                38,
+
+                function() {
+
+                    document
+                    .getElementById("lanjutSurat")
+                    .style.display =
+                    "inline-block";
+
+                }
+
+            );
+
+        },
+
+        1200
+    );
+
+}
+
+
+/* ==================================================
+   TYPEWRITER
+================================================== */
+
+function ketik(
+element,
+text,
+speed,
+callback
+) {
+
+
+    element.innerHTML = "";
+
+
+    let i = 0;
+
+
+    const cursor =
+    document.createElement(
+        "span"
+    );
+
+
+    cursor.className =
+    "cursor";
+
+
+    element.appendChild(
+        cursor
+    );
+
+
+    function mulai() {
+
+
+        if(
+            i < text.length
+        ) {
+
+
+            cursor.before(
+
+                document.createTextNode(
+                    text.charAt(i)
+                )
+
+            );
+
+
+            i++;
+
+
+            setTimeout(
+                mulai,
+                speed
+            );
+
+
+        }
+
+        else {
+
+
+            if(callback) {
+
+                callback();
+
+            }
 
         }
 
     }
 
+
+    mulai();
+
+}
+
+
+/* ==================================================
+   KE PERTANYAAN
+================================================== */
+
+function kePertanyaan() {
+
+
+    document
+    .getElementById("surat")
+    .style.display =
+    "none";
+
+
+    document
+    .getElementById("pertanyaan")
+    .style.display =
+    "block";
+
+
+    const teks =
+
+    "Jadi... aku mau tanya satu hal. Mau nggak kamu jalan sama aku? 🥺❤️";
+
+
+    ketik(
+
+        document
+        .getElementById("teksPertanyaan"),
+
+        teks,
+
+        50
+
+    );
+
+}
+
+
+/* ==================================================
+   MAU
+================================================== */
+
+function mau() {
+
+
+    document
+    .getElementById("pertanyaan")
+    .style.display =
+    "none";
+
+
+    document
+    .getElementById("tempat")
+    .style.display =
+    "block";
+
+}
+
+
+/* ==================================================
+   TIDAK
+================================================== */
+
+function tidak() {
+
+
+    const button =
+    document.getElementById(
+        "noButton"
+    );
+
+
+    const maxX =
+    window.innerWidth - 130;
+
+
+    const maxY =
+    window.innerHeight - 90;
+
+
+    button.style.position =
+    "fixed";
+
+
+    button.style.left =
+
+        Math.random()
+        * maxX
+        + "px";
+
+
+    button.style.top =
+
+        Math.random()
+        * maxY
+        + "px";
+
+}
+
+
+/* ==================================================
+   PILIH TEMPAT
+================================================== */
+
+function pilihTempat(
+tempat
+) {
+
+
+    tempatDipilih =
+    tempat;
+
+
+    document
+    .getElementById("grillme")
+    .classList
+    .remove("selected");
+
+
+    document
+    .getElementById("bioskop")
+    .classList
+    .remove("selected");
+
+
+    document
+    .getElementById(tempat)
+    .classList
+    .add("selected");
+
+}
+
+
+/* ==================================================
+   KE KALENDER
+================================================== */
+
+function keKalender() {
+
+
+    if(!tempatDipilih) {
+
+        alert(
+            "Pilih tempat dulu ya ❤️"
+        );
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("tempat")
+    .style.display =
+    "none";
+
+
+    document
+    .getElementById("jadwal")
+    .style.display =
+    "block";
+
+
+    renderCalendar();
+
+}
+
+
+/* ==================================================
+   TANGGAL
+================================================== */
+
+const hariIni =
+new Date();
+
+
+hariIni.setHours(
+0,0,0,0
+);
+
+
+let bulanTampil =
+hariIni.getMonth();
+
+
+let tahunTampil =
+hariIni.getFullYear();
+
+
+let tanggalDipilih =
+null;
+
+
+/* ==================================================
+   BULAN
+================================================== */
+
+const namaBulan = [
+
+"Januari",
+"Februari",
+"Maret",
+"April",
+"Mei",
+"Juni",
+"Juli",
+"Agustus",
+"September",
+"Oktober",
+"November",
+"Desember"
+
+];
+
+
+/* ==================================================
+   RENDER CALENDAR
+================================================== */
+
+function renderCalendar() {
+
+
+    const days =
+    document.getElementById(
+        "days"
+    );
+
+
+    days.innerHTML = "";
+
+
+    document.getElementById(
+        "namaBulan"
+    ).innerText =
+
+        namaBulan[
+            bulanTampil
+        ]
+
+        +
+
+        " "
+
+        +
+
+        tahunTampil;
+
+
+
+    const firstDay =
+    new Date(
+        tahunTampil,
+        bulanTampil,
+        1
+    ).getDay();
+
+
+    const jumlahHari =
+    new Date(
+        tahunTampil,
+        bulanTampil + 1,
+        0
+    ).getDate();
+
+
+
+    for(
+        let i = 0;
+        i < firstDay;
+        i++
+    ) {
+
+
+        const empty =
+        document.createElement(
+            "div"
+        );
+
+
+        empty.className =
+        "day empty";
+
+
+        days.appendChild(
+            empty
+        );
+
+    }
+
+
+
+    for(
+        let tanggal = 1;
+        tanggal <= jumlahHari;
+        tanggal++
+    ) {
+
+
+        const day =
+        document.createElement(
+            "div"
+        );
+
+
+        day.className =
+        "day";
+
+
+        day.innerText =
+        tanggal;
+
+
+
+        const date =
+        new Date(
+            tahunTampil,
+            bulanTampil,
+            tanggal
+        );
+
+
+        date.setHours(
+            0,0,0,0
+        );
+
+
+
+        if(
+            date < hariIni
+        ) {
+
+
+            day.classList.add(
+                "past"
+            );
+
+
+        }
+
+        else {
+
+
+            day.onclick =
+            function() {
+
+                pilihTanggal(
+                    date
+                );
+
+            };
+
+        }
+
+
+
+        if(
+            date.getTime()
+            ===
+            hariIni.getTime()
+        ) {
+
+
+            day.classList.add(
+                "today"
+            );
+
+        }
+
+
+
+        if(
+
+            tanggalDipilih
+
+            &&
+
+            date.getTime()
+            ===
+            tanggalDipilih.getTime()
+
+        ) {
+
+
+            day.classList.add(
+                "selected"
+            );
+
+        }
+
+
+        days.appendChild(
+            day
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   PILIH TANGGAL
+================================================== */
+
+function pilihTanggal(
+date
+) {
+
+
+    tanggalDipilih =
+    new Date(date);
+
+
+    renderCalendar();
+
+
+    document.getElementById(
+        "selectedInfo"
+    ).innerHTML =
+
+        "❤️ Kamu memilih:<br><strong>"
+
+        +
+
+        formatTanggal(
+            tanggalDipilih
+        )
+
+        +
+
+        "</strong>";
+
+}
+
+
+/* ==================================================
+   BULAN SEBELUMNYA
+================================================== */
+
+function bulanSebelumnya() {
+
+
+    const bulanSekarang =
+    hariIni.getMonth();
+
+
+    const tahunSekarang =
+    hariIni.getFullYear();
+
+
+    if(
+
+        tahunTampil
+        ===
+        tahunSekarang
+
+        &&
+
+        bulanTampil
+        ===
+        bulanSekarang
+
+    ) {
+
+        return;
+
+    }
+
+
+    bulanTampil--;
+
+
+    if(
+        bulanTampil < 0
+    ) {
+
+        bulanTampil = 11;
+
+        tahunTampil--;
+
+    }
+
+
+    renderCalendar();
+
+}
+
+
+/* ==================================================
+   BULAN BERIKUTNYA
+================================================== */
+
+function bulanBerikutnya() {
+
+
+    bulanTampil++;
+
+
+    if(
+        bulanTampil > 11
+    ) {
+
+        bulanTampil = 0;
+
+        tahunTampil++;
+
+    }
+
+
+    renderCalendar();
+
+}
+
+
+/* ==================================================
+   FORMAT TANGGAL
+================================================== */
+
+function formatTanggal(
+date
+) {
+
+
+    const hari = [
+
+        "Minggu",
+        "Senin",
+        "Selasa",
+        "Rabu",
+        "Kamis",
+        "Jumat",
+        "Sabtu"
+
+    ];
+
+
+    return (
+
+        hari[
+            date.getDay()
+        ]
+
+        +
+
+        ", "
+
+        +
+
+        date.getDate()
+
+        +
+
+        " "
+
+        +
+
+        namaBulan[
+            date.getMonth()
+        ]
+
+        +
+
+        " "
+
+        +
+
+        date.getFullYear()
+
+    );
+
+}
+
+
+/* ==================================================
+   LANJUT
+================================================== */
+
+function lanjut() {
+
+
+    if(!tanggalDipilih) {
+
+        alert(
+            "Pilih tanggal dulu ya ❤️"
+        );
+
+        return;
+
+    }
+
+
+    const waktu =
+    document.getElementById(
+        "waktu"
+    ).value;
+
+
+    if(!waktu) {
+
+        alert(
+            "Pilih waktu dulu ya ⏰"
+        );
+
+        return;
+
+    }
+
+
+    const data =
+    tempatData[
+        tempatDipilih
+    ];
+
+
+    const tanggalText =
+    formatTanggal(
+        tanggalDipilih
+    );
+
+
+
+    /* HASIL */
+
+    document.getElementById(
+        "hasilTanggal"
+    ).innerText =
+    tanggalText;
+
+
+    document.getElementById(
+        "hasilWaktu"
+    ).innerText =
+    waktu + " WIB";
+
+
+    document.getElementById(
+        "hasilTempat"
+    ).innerText =
+    data.nama;
+
+
+
+    /* GOOGLE MAPS */
+
+    document.getElementById(
+        "maps"
+    ).href =
+    data.maps;
+
+
+
+    /* WHATSAPP */
+
+    const pesan =
+
+        "Hai! Aku mau jalan sama kamu ❤️"
+
+        +
+
+        "\n\n"
+
+        +
+
+        "📅 "
+
+        +
+
+        tanggalText
+
+        +
+
+        "\n"
+
+        +
+
+        "⏰ "
+
+        +
+
+        waktu
+
+        +
+
+        " WIB"
+
+        +
+
+        "\n"
+
+        +
+
+        data.icon
+
+        +
+
+        " "
+
+        +
+
+        data.nama
+
+        +
+
+        "\n\n"
+
+        +
+
+        "Sampai ketemu yaa 🥰";
+
+
+    document.getElementById(
+        "whatsapp"
+    ).href =
+
+        "https://wa.me/"6287821897613
+
+        +
+
+        nomorWhatsApp
+
+        +
+
+        "?text="
+
+        +
+
+        encodeURIComponent(
+            pesan
+        );
+
+
+
+    /* PINDAH */
+
+    document
+    .getElementById("jadwal")
+    .style.display =
+    "none";
+
+
+    document
+    .getElementById("hasil")
+    .style.display =
+    "block";
+
+
+    confetti();
+
+}
+
+
+/* ==================================================
+   HATI
+================================================== */
+
+function createHeart() {
+
+
+    const heart =
+    document.createElement(
+        "div"
+    );
+
+
+    heart.className =
+    "falling-heart";
+
+
+    heart.innerHTML =
+    "❤️";
+
+
+    heart.style.left =
+
+        Math.random()
+        * 100
+        +
+
+        "vw";
+
+
+    heart.style.fontSize =
+
+        (
+
+            Math.random()
+            * 18
+            + 14
+
+        )
+
+        +
+
+        "px";
+
+
+    heart.style.animationDuration =
+
+        (
+
+            Math.random()
+            * 3
+            + 3
+
+        )
+
+        +
+
+        "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(
+        function() {
+
+            heart.remove();
+
+        },
+
+        6000
+    );
+
+}
+
+
+setInterval(
+    createHeart,
+    650
+);
+
+
+/* ==================================================
+   CONFETTI
+================================================== */
+
+function confetti() {
+
+
+    for(
+        let i = 0;
+        i < 120;
+        i++
+    ) {
+
+
+        const piece =
+        document.createElement(
+            "div"
+        );
+
+
+        piece.className =
+        "confetti";
+
+
+        piece.style.left =
+
+            Math.random()
+            * 100
+            +
+
+            "vw";
+
+
+        piece.style.background =
+
+            `hsl(
+                ${Math.random() * 360},
+                100%,
+                60%
+            )`;
+
+
+        piece.style.animationDuration =
+
+            (
+
+                Math.random()
+                * 2
+                + 2
+
+            )
+
+            +
+
+            "s";
+
+
+        document.body.appendChild(
+            piece
+        );
+
+
+        setTimeout(
+            function() {
+
+                piece.remove();
+
+            },
+
+            4000
+        );
+
+    }
+
+}
+
 </script>
 
 </body>
+
 </html>
